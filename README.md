@@ -342,3 +342,24 @@ class HelperMethods
         return str.Replace("ö", "o").Replace("ü", "u").Replace("ı", "i");
     }
 }
+
+//Collections lar koleksiyonlar
+//List<> Koleksiyonu
+
+var product = new List<Product>();
+product.Add(new Product() { Id = 1, Title = "First Product", Price = 400 });
+product.Add(new Product() { Id = 2, Title = "Second Product", Price = 500 });
+
+foreach (var item in product)
+{
+    Console.WriteLine(item.Id);
+    Console.WriteLine(item.Title);
+    Console.WriteLine(item.Price);
+}
+
+class Product
+{
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public double Price { get; set; }
+}
