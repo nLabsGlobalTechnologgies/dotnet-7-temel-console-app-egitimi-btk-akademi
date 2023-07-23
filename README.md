@@ -227,3 +227,61 @@ public class Soru
         return this.Cevap.ToLower() == cevap;
     }
 }
+
+
+var soru1 = new Soru()
+{
+    Id = 1,
+    Metin = "Hangisi programlama dili degildir ?",
+    Secenekler = new string[4] { "Python", "C#", "Java", "Html" },
+    Cevap = "Html"
+};
+var soru2 = new Soru()
+{
+    Id = 2,
+    Metin = "Hangisi programlama dili degildir ?",
+    Secenekler = new string[4] { "Python", "C#", "Java", "Html" },
+    Cevap = "Html"
+};
+var sorular = new Soru[] { soru1, soru2 };
+
+foreach (var soru in sorular)
+{
+    Console.WriteLine($"Soru No : {soru.Id}");
+    Console.WriteLine($"Soru : {soru.Metin}");
+    foreach (var secenek in soru.Secenekler)
+    {
+        Console.WriteLine($"Seçenek: {secenek}");
+    }
+
+    Console.Write("cevabınız : ");
+    var cevap = Console.ReadLine();
+    if (soru.cevapKontrol(cevap))
+        Console.WriteLine("dogru cevap");
+    else
+        Console.WriteLine($"yanlış cevap dogru cevap : ({soru.Cevap})");
+}
+
+public class Soru
+{
+    public Soru()
+    {
+        Id = (new Random()).Next(1111, 9999); 
+    }
+    public Soru(int id, string metin, string[] secenekler, string cevap)
+    {
+        Id = id;
+        Metin = metin;
+        Secenekler = secenekler;
+        Cevap= cevap;
+    }
+    public int Id { get; set; }
+    public string Metin { get; set; }
+    public string[] Secenekler { get; set; }
+    public string Cevap { get; set; }
+
+    public bool cevapKontrol(string cevap)
+    {
+        return this.Cevap.ToLower() == cevap;
+    }
+}
