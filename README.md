@@ -140,7 +140,7 @@ foreach (var item in ad)
 }
 
 
-oop Methodlar
+//oop Methodlar
 using ConsoleApp1;
 
 Ogrenci ogrenci1 = new Ogrenci()
@@ -185,7 +185,7 @@ namespace ConsoleApp1
 }
 
 
-farklı bir örnek
+//farklı bir örnek
 
 var soru1 = new Soru()
             {
