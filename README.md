@@ -329,3 +329,16 @@ public class Soru
         return this.Cevap.ToLower() == cevap;
     }
 }
+
+//burada ö o ile degiştirilmiştir ve ü u ile ı ise i ile degiştirilmiştir
+
+var bilgi = HelperMethods.KarakterDuzelt("ölçme ve degerlendirme ve kısaltma");
+
+Console.WriteLine(bilgi);
+class HelperMethods
+{
+    public static string KarakterDuzelt(string str)
+    {
+        return str.Replace("ö", "o").Replace("ü", "u").Replace("ı", "i");
+    }
+}
