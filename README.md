@@ -285,3 +285,47 @@ public class Soru
         return this.Cevap.ToLower() == cevap;
     }
 }
+
+
+// farklı kullanım ve erişim belirteçleri
+
+var soru1 = new Soru(1, "Hangisi programlama dili degildir ?", new string[4] { "Python", "C#", "Java", "Html" }, "Html");
+var soru2 = new Soru(2, "Hangisi programlama dili degildir ?", new string[4] { "Python", "C#", "Java", "Html" }, "C#");
+var soru3 = new Soru(2, "Hangisi programlama dili degildir ?", new string[4] { "Python", "C#", "Java", "Html" }, "Spring");
+Console.WriteLine(soru1.soruYazdir());
+Console.WriteLine(soru1.cevapKontrol("html"));
+Console.WriteLine(soru2.soruYazdir());
+Console.WriteLine(soru2.cevapKontrol("c#"));
+Console.WriteLine(soru3.soruYazdir());
+Console.WriteLine(soru3.cevapKontrol("spring"));
+public class Soru
+{
+    public Soru(int id, string metin, string[] secenekler, string cevap)
+    {
+        Id = id;
+        Metin = metin;
+        Secenekler = secenekler;
+        Cevap = cevap;
+    }
+    private int Id { get; set; }
+    private string Metin { get; set; }
+    private string[] Secenekler { get; set; }
+    private string Cevap { get; set; }
+
+
+    public string soruYazdir()
+    {
+        int id = Id;
+        string soru = "";
+        soru += this.Metin + "\n";
+        foreach (string secenek in Secenekler)
+        {
+            soru += secenek + "\n";
+        }
+        return soru;
+    }
+    public bool cevapKontrol(string cevap)
+    {
+        return this.Cevap.ToLower() == cevap;
+    }
+}
